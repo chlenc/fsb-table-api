@@ -14,13 +14,13 @@ type App struct {
 }
 
 type User struct {
-	Id          int    `sql:"AUTO_INCREMENT" gorm:"primary_key"`
-	Firstname   string `sql:"null"`
-	Lastname    string `sql:"null"`
-	Email       string `sql:"null"`
-	Phone       string `sql:"null"`
-	Address     string `sql:"null"`
-	Description string `sql:"null"`
+	Id          int    `sql:"AUTO_INCREMENT" gorm:"primary_key" json:"id"`
+	Firstname   string `json:"firstName" binding:"required" sql:"null"`
+	Lastname    string `json:"lastName" binding:"required" sql:"null"`
+	Email       string `json:"email" binding:"required" sql:"null"`
+	Phone       string `json:"phone" binding:"required" sql:"null"`
+	Address     string `json:"address" binding:"required" sql:"null"`
+	Description string `json:"description" binding:"required" sql:"null"`
 }
 
 func (i *User) TableName() string {
